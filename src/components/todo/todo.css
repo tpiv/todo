@@ -1,0 +1,16 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+}
+.count{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+.but {
+    margin-top: 10px;
+}
+.wi {
+    width: 650px;
+}
