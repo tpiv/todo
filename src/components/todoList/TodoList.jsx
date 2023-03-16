@@ -5,8 +5,8 @@ export default function InputDate(props) {
     const {elem, tasks, setTasks} = {...props};
 
     function textTask (event) {
-        setTasks(tasks.map((obj, i) => {
-            if(elem.id===i) {
+        setTasks(tasks.map((obj) => {
+            if(elem.id===obj.id) {
                 obj.text=event.target.value;
             }
             return obj;
