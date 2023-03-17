@@ -7,7 +7,7 @@ export default function InputDate() {
     //логика, функция
     const [tasks, setTasks] = useState(numbers);
     function add () {
-        let id = numbers[numbers.length-1].id + 1;
+        let id = tasks[tasks.length-1].id + 1;
         setTasks([...tasks, {id: id, text: "", checked: false}]);
     }
     return (
