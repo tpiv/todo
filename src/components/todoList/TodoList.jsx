@@ -1,36 +1,47 @@
-import './todoList.css'
+import styles from './todoList.module.css';
+
 
 export default function InputDate(props) {
-    //логика, функция
-    const {elem, tasks, setTasks} = {...props};
 
-    function textTask (event) {
-        setTasks(tasks.map((obj) => {
-            if(elem.id===obj.id) {
-                obj.text=event.target.value;
-            }
-            return obj;
-        }));
+    const { elem, tasks, setTasks } = { ...props };
+
+    function textTask(event) {
+        setTasks(
+            tasks.map((task) => {
+                if (elem.id === task.id) {
+                    task.text = event.target.value;
+                }
+                return task;
+            })
+        );
     }
-    function delTask (event) {
-        console.log(event.target.id);
-        let id = parseInt(event.target.id);
-        let mass = [];
-        for(let i=0; i < tasks.length; i++) {
-            if(i !== id) {
-                mass.push(tasks[i]);
-            }
-        }
-        setTasks(mass);
+
+    function delTask() {
+        setTasks(tasks.filter(task => task.id !== elem.id));
     }
-    function checked(event) {
-        console.log(event.target.id);
+
+    function checked() {
+        setTasks(
+            tasks.map((task) => {
+                if (elem.id === task.id) {
+                    task.checked = !task.checked;
+                }
+                return task;
+            })
+        );
     }
+
     return (
-        <div className='count'>
-        <div><input type="checkbox" name="ok" onChange={checked} /></div>
-        <div><input type="text" className='wi' value={elem.text} onChange={textTask} /></div>
-        <div><button onClick={delTask}>Удалить</button></div>
+        <div className={!elem.checked ? styles.countTrue : styles.countFalse}>
+            <div>
+                <input type="checkbox" name={styles.ok} onChange={checked} />
+            </div>
+            <div>
+                <input type="text" className={styles.wi} value={elem.text} onChange={textTask} />
+            </div>
+            <div>
+                <button onClick={delTask}>Удалить</button>
+            </div>
         </div>
     )
 }
