@@ -1,0 +1,78 @@
+@import '../../assets/global-style/_variables.scss';
+
+.autorization {
+  width: 100%;
+  height: 100%;
+  padding-top: 110px;
+  display: flex;
+  justify-content: center;
+}
+
+.wrap {
+  width: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerLogo {
+  width: 400;
+  margin-bottom: 55px;
+  display: flex;
+  align-items: center;
+}
+
+.logoImg {
+  width: 70px;
+  height: 45px;
+  margin-right: 25px;
+}
+
+.logoName {
+  @include textBold(32px, 54px);
+}
+
+.container {
+  width: 100%;
+  height: 540px;
+  padding: 40px 50px 20px 50px;
+  border-radius: 10px;
+  background-color: $bgComponent;
+  @include shadow();
+}
+
+.title {
+  margin-bottom: 60px;
+  @include extraBold();
+}
+
+@media screen and (max-width: 1400px) {
+  .autorization {
+    padding-top: 90px;
+  }
+  
+  .containerLogo {
+    margin-bottom: 40px;
+  }
+  
+  .logoImg {
+    width: 58px;
+    height: 38px;
+    margin-right: 20px;
+  }
+  
+  .logoName {
+    @include textBold(30px, 54px);
+  }
+  
+  .container {
+    height: 500px;
+    padding: 20px 40px 20px 40px;
+  }
+  
+  .title {
+    margin-bottom: 40px;
+    @include extraBold($size: 30px, $line-height: 44px)
+  }
+}

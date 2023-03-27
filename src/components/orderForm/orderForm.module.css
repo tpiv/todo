@@ -1,0 +1,14 @@
+.wrapper {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.elemForms {
+  width: 400px;
+  margin: 5px;
+}
+
+.errors {
+  color: red;
+}

@@ -1,0 +1,103 @@
+@import '../../assets/global-style/_variables.scss';
+
+.form {
+  height: 290px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container {
+  height: 180px;
+  width: 100%;
+}
+
+.inputWrap {
+  width: 400px;
+  margin-bottom: 35px;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  height: 60px;
+  padding: 0 15px;
+  background-color: transparent;
+  @include textBold($size: 20px);
+  @include border();
+}
+
+.inputError {
+  border-color: $error;
+  @include shadow($color: $errorShadow);
+}
+
+.button {
+  width: 400px;
+  height: 60px;
+  border-radius: 5px;
+  border-color: transparent;
+  @include textBold($size: 20px);
+}
+
+.formNoValid {
+  background-color: $accentDarck;
+}
+
+.formValid {
+  background-color: $accentLight;
+  @include border($color: $accentLight);
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: transparent;
+    color: $basic;
+    transition: background-color 0.3s, color 0.3s;
+  }
+}
+
+.errorMessage {
+  position: absolute;
+  left: 0;
+  top: 60px;
+  width: 100%;
+  @include textReg($size: 13px, $color: $error, $line-height: 16px);
+  margin: 5px 0 0 15px;
+}
+
+@media screen and (max-width: 1400px) {
+
+  .container {
+    height: 180px;
+    width: 100%;
+  }
+
+  .inputWrap {
+    width: 400px;
+    margin-bottom: 35px;
+  }
+
+  .input {
+    height: 55px;
+    padding: 0 10px;
+    @include textBold($size: 18px);
+  }
+
+  .button {
+    width: 270px;
+    height: 55px;
+    @include textBold($size: 18px);
+  }
+
+  .errorMessage {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    width: 100%;
+    @include textReg($size: 13px, $color: $error, $line-height: 16px);
+    margin: 5px 0 0 10px;
+  }
+}
