@@ -9,14 +9,10 @@ import { useForm } from 'react-hook-form';
 
 export default function Autorization() {
     const {
-        register, 
-        handleSubmit, 
-        formState: {errors},
+        handleSubmit,
         control
     } = useForm ({mode: "onBlur"});
     
-    const [value, setValue] = useState("");
-    const handleChange = (value) => setValue(value.value);
     const onSubmit = (data) => {
         console.log(JSON.stringify(data));
     }
