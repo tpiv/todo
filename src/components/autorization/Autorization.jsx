@@ -1,55 +1,106 @@
-
-import TextFieldCustom from '../textFieldCustom/TextFieldCustom';
-import { Button } from '@consta/uikit/Button';
-
-import styles from './autorization.module.css';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
+import { Button } from '@consta/uikit/Button';
+import { IconUser } from '@consta/icons/IconUser';
+import { IconLock } from '@consta/icons/IconLock';
+import { TextField } from "@consta/uikit/TextField";
+import { Text } from '@consta/uikit/Text';
+
+import styles from './autorization.module.css';
+
 
 
 export default function Autorization() {
     const {
         handleSubmit,
-        control
-    } = useForm ({mode: "onBlur"});
-    
+        register,
+        formState: { errors }
+    } = useForm({ mode: "onBlur" });
+
     const onSubmit = (data) => {
         console.log(JSON.stringify(data));
     }
+
     useEffect(() => {
-      
-    
-      return () => {
-        
-      }
+
+
+        return () => {
+
+        }
     }, [])
-    
+
+    const [inn, setInn] = useState(null);
+    const handleInn = (val) => setInn(val.value);
+    const [pass, setPass] = useState(null);
+    const handlePass = (val) => setPass(val.value);
 
     return (
         <form className={styles.wrapper} onSubmit={handleSubmit(onSubmit)}>
+            <div className={styles.wrapperForm}>
                 <div className={styles.elemForm}>
                     <span className={styles.heading}>Вход в личный кабинет</span>
                 </div>
-                
+
                 <div className={styles.elemForm}>
-                    <TextFieldCustom
-                        name="constaName"
+                    <TextField
+                        {...register('inn', {
+                            required: "Поле не должно быть пустым",
+                            pattern: {
+                                value: /^([0-9]{10})?$/,
+                                message: "ИНН юр лиц состоит из 10 цифр"
+                            }
+                        })}
+                        onChange={handleInn}
+                        value={inn}
                         type="text"
-                        placeholder="Имя"
-                        control={control}
-                        rules={{
-                            minLength: {
-                            value: 2,
-                            message: "Имя должно быть длинее 2 символов"
-                            },
-                            required: "Поле обязательно для заполнения"
-                        }}
+                        placeholder="ИНН"
+                        leftSide={IconUser}
+                        label="Введите ИНН"
                     />
+                    <div>
+                        {/* {errors?.inn && <span className={styles.errors}>{errors?.inn?.message || "Ошибка"}</span>} */}
+                        {errors?.inn && <Text view="alert">{errors?.inn?.message || "Ошибка"}</Text>}
+                    </div>
                 </div>
-                
+
                 <div className={styles.elemForm}>
-                    <Button label="Войти" />
+                    <TextField
+                        {...register('pass', {
+                            required: "Поле не должно быть пустым",
+                            minLength: {
+                                value: 5,
+                                message: "Не менее 5 символов"
+                            },
+                            maxLength: {
+                                value: 20,
+                                message: "Не более 20 символов"
+                            }
+                        })}
+                        onChange={handlePass}
+                        value={pass}
+                        type="password"
+                        placeholder="Пароль"
+                        leftSide={IconLock}
+                        label="Введите пароль"
+                    />
+                    <div>
+                        {errors?.pass && <Text view="alert">{errors?.pass?.message || "Ошибка"}</Text>}
+                    </div>
                 </div>
+
+                <div className={styles.elemForm}>
+                    <Button label="Войти" form="round" />
+                </div>
+
+                <div className={styles.elemForm}>
+                    <div className={styles.lowerWrapper}>
+                        <span>Забыли пароль?</span>
+                        <span><a href="">Восстановить</a></span>
+                    </div>
+                    <span><a href="">Техническая поддержка</a></span>
+                </div>
+            </div>
         </form>
     )
 }

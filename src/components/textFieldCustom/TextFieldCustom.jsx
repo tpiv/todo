@@ -8,7 +8,6 @@ import { Text } from "@consta/uikit/Text";
 export const TextFieldCustom = ({
   name,
   rules,
-  defaultValue,
   control,
   shouldUnregister,
   ...textFieldProps
@@ -23,17 +22,21 @@ export const TextFieldCustom = ({
       onChange(e);
     };
     return (
-      <div>
-        <TextField
-          {...textFieldProps}
-          onChange={handleChange}
-          onBlur={onBlur}
-          value={value}
-          ref={ref}
-        />
-        {fieldState.error && (
-          <Text view="alert">{fieldState.error.message}</Text>
-        )}
+        <div className={styles.wrapper}>
+            <div className={styles.elem}>
+                <TextField
+                {...textFieldProps}
+                onChange={handleChange}
+                onBlur={onBlur}
+                value={value}
+                ref={ref}
+                />
+            </div>
+            <div className={styles.elem}>
+                {fieldState.error && (
+                <Text view="alert">{fieldState.error.message}</Text>
+                )}
+            </div>
       </div>
     );
   };
@@ -42,7 +45,6 @@ export const TextFieldCustom = ({
     <Controller
       name={name}
       rules={rules}
-      defaultValue={defaultValue}
       control={control || context.control}
       shouldUnregister={shouldUnregister}
       render={renderTextField}

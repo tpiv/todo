@@ -1,18 +1,11 @@
-.countTrue{
-    width: 100%;
+.wrapper {
     display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
+    flex-direction: column;
 }
 
-.countFalse{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    background-color: brown;
+.elem {
+    /* min-height: 30px;
+    max-height: 30px;
+    margin: 10px; */
 }
 
-.wi {
-    width: 650px;
-}

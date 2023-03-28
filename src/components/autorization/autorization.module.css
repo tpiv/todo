@@ -21,3 +21,17 @@
 .heading {
     font-size: 150%;
 }
+
+.lowerWrapper {
+    display: flex;
+}
+
+.wrapperForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+    width: 300px;
+}

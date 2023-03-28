@@ -1,0 +1,22 @@
+React плюс React-Hook-Form, SCSS, Webpack. 
+
+
+{...register('login', {
+                        required: "Поле не должно быть пустым",
+                        pattern: {
+                          value: /^[а-яё -]+$/i,
+                          message: "Только русские буквы, минимальная длинна 3 буквы"
+                        }
+                    }
+
+
+
+
+{...register('login')}
+
+
+{...register('login')}
+
+
+
+https://codesandbox.io/s/consta-react-hook-form-controller-k6rem?file=/src/TextFieldCustom.js:867-919
