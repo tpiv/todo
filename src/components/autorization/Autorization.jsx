@@ -16,7 +16,7 @@ export default function Autorization() {
         handleSubmit,
         register,
         formState: { errors }
-    } = useForm({ mode: "onBlur" });
+    } = useForm({ mode: "onChange" });
 
     const onSubmit = (data) => {
         console.log(JSON.stringify(data));
@@ -57,6 +57,7 @@ export default function Autorization() {
                         placeholder="ИНН"
                         leftSide={IconUser}
                         label="Введите ИНН"
+                        status={errors?.inn ? "alert" : "undefined"}
                     />
                     <div>
                         {/* {errors?.inn && <span className={styles.errors}>{errors?.inn?.message || "Ошибка"}</span>} */}
