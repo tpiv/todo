@@ -11,8 +11,13 @@
     justify-content: center;
     overflow: auto;
 }
+
+.elemFormHead {
+    margin: 10px;
+}
 .elemForm {
     margin: 10px;
+    height: 80px;
 }
 .errors {
     color: red;
@@ -35,3 +40,7 @@
     overflow: auto;
     width: 300px;
 }
+
+.spanLink:visited{ text-decoration:none; color:#293d6b; }
+.spanLink:hover{ text-decoration:underline; color:#293d6b; }
+.spanLink {color:#293d6b; cursor: pointer; }

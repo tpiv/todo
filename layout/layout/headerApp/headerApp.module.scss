@@ -1,0 +1,137 @@
+@import '../../assets/global-style/_variables.scss';
+
+.headerApp {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $basic;
+}
+
+.headerAppBlock {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.headerAppConfig {
+  width: 375px;
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerAppConfigName {
+  @include textBold($size: 24px, $line-height: 33px);
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.headerAppConfigIcon {
+  @include icon($width: 22px, $height: 22px, $fill: $basic);
+  margin-left: 14px;
+  cursor: pointer;
+  transition: fill 0.3s;
+
+  &:hover {
+    transition: fill 0.3s;
+    fill: $accentLight;
+  }
+}
+
+.headerAppUserNameWrap {
+  margin-left: 45px;
+}
+
+.headerAppUserName {
+  @include textBold($size: 22px, $line-height: 30px);
+}
+
+.headerAppBlock:first-child {
+  width: 1185px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.headerAppExit {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  cursor: pointer;
+
+  & span {
+    transition: color 0.3s;
+  }
+
+  & svg {
+    transition: fill 0.3s;
+  }
+
+  &:hover span {
+    color: $accentLight;
+    transition: color 0.3s;
+  }
+
+  &:hover svg {
+    fill: $accentLight;
+    transition: fill 0.3s;
+  }
+}
+
+.headerAppExitText {
+  @include textBold($size: 20px, $line-height: 27px);
+  margin-right: 15px;
+}
+
+.headerAppExitIcon {
+  @include icon();
+}
+
+
+@media screen and (max-width: 1720px) {
+  .headerAppConfig {
+    width: 365px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .headerAppConfig {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+
+  .headerAppConfigName {
+    @include textBold($size: 22px, $line-height: 33px);
+  }
+  
+  .headerAppConfigIcon {
+    @include icon($width: 21px, $height: 21px, $fill: $basic);
+  }
+  
+  .headerAppUserNameWrap {
+    margin-left: 30px;
+  }
+  
+  .headerAppUserName {
+    @include textBold($size: 20px, $line-height: 30px);
+  }
+  
+  .headerAppBlock:first-child {
+    width: 1045px;
+  }
+  
+
+  
+  .headerAppExitText {
+    @include textBold($size: 18px, $line-height: 27px);
+    margin-right: 10px;
+  }
+  
+  .headerAppExitIcon {
+    @include icon($width: 26px, $height: 26px);
+  }
+}

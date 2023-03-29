@@ -1,34 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Button } from '@consta/uikit/Button';
 import { IconUser } from '@consta/icons/IconUser';
 import { IconLock } from '@consta/icons/IconLock';
 import { TextField } from "@consta/uikit/TextField";
-import { Text } from '@consta/uikit/Text';
 
-import styles from './autorization.module.css';
-
+import styles from './autorizationForm.module.css';
 
 
-export default function Autorization() {
+
+export default function AutorizationForm() {
     const {
         handleSubmit,
         register,
         formState: { errors }
-    } = useForm({ mode: "onChange" });
+    } = useForm({ mode: "all" });
 
     const onSubmit = (data) => {
         console.log(JSON.stringify(data));
     }
-
-    useEffect(() => {
-
-
-        return () => {
-
-        }
-    }, [])
 
     const [inn, setInn] = useState(null);
     const handleInn = (val) => setInn(val.value);
@@ -36,9 +27,9 @@ export default function Autorization() {
     const handlePass = (val) => setPass(val.value);
 
     return (
-        <form className={styles.wrapper} onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.wrapperForm}>
-                <div className={styles.elemForm}>
+                <div className={styles.elemFormHead}>
                     <span className={styles.heading}>Вход в личный кабинет</span>
                 </div>
 
@@ -58,11 +49,8 @@ export default function Autorization() {
                         leftSide={IconUser}
                         label="Введите ИНН"
                         status={errors?.inn ? "alert" : "undefined"}
+                        caption={errors?.inn ? errors?.inn?.message : ""}
                     />
-                    <div>
-                        {/* {errors?.inn && <span className={styles.errors}>{errors?.inn?.message || "Ошибка"}</span>} */}
-                        {errors?.inn && <Text view="alert">{errors?.inn?.message || "Ошибка"}</Text>}
-                    </div>
                 </div>
 
                 <div className={styles.elemForm}>
@@ -84,10 +72,10 @@ export default function Autorization() {
                         placeholder="Пароль"
                         leftSide={IconLock}
                         label="Введите пароль"
+                        status={errors?.pass ? "alert" : "undefined"}
+                        caption={errors?.pass ? errors?.pass?.message : ""}
                     />
-                    <div>
-                        {errors?.pass && <Text view="alert">{errors?.pass?.message || "Ошибка"}</Text>}
-                    </div>
+                   
                 </div>
 
                 <div className={styles.elemForm}>
@@ -97,7 +85,7 @@ export default function Autorization() {
                 <div className={styles.elemForm}>
                     <div className={styles.lowerWrapper}>
                         <span>Забыли пароль?</span>
-                        <span><a href="">Восстановить</a></span>
+                        <span className={styles.spanLink}>Восстановить</span>
                     </div>
                     <span><a href="">Техническая поддержка</a></span>
                 </div>

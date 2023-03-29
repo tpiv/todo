@@ -1,0 +1,9 @@
+@import '../../assets/global-style/_variables.scss';
+
+.ContentApp{
+  height: 100%;
+  padding: 15px 15px 15px 15px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}

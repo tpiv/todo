@@ -1,15 +1,14 @@
-import { Theme, presetGpnDefault } from '@consta/uikit/Theme';
-import { Button } from '@consta/uikit/Button';
-
-import Autorization from './components/autorization/Autorization';
+import AutorizationForm from './components/autorizationForm/AutorizationForm';
 import AuthForm from './components/authForm/AuthForm';
+import ContentApp from './layout/contentApp/ContentApp';
 
-import styles from './App.module.css';
 
 function App() {
 
   return (
-    <Autorization/>
+    <ContentApp>
+      <AutorizationForm/>
+    </ContentApp>
   );
 }
 
